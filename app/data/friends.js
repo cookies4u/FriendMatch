@@ -8,7 +8,7 @@
 var tableArray = [
 	{
 	  "name":"Archie Andrews",
-	  "photo":"../public/assets/images/Archieandr.png",
+	  "photo":"/assets/images/Archieandr.png",
 	  "scores":[
 	      5,
 	      1,
@@ -24,7 +24,7 @@ var tableArray = [
 	},
 	{
 	  "name":"Betty Cooper",
-	  "photo":"../public/assets/images/Bettys.png",
+	  "photo":"/assets/images/Bettys.png",
 	  "scores":[
 	      2,
 	      3,
@@ -40,7 +40,7 @@ var tableArray = [
 	},
 	{
 	  "name":"Veronica Lodge",
-	  "photo":"../public/assets/images/Veronicaldg.png",
+	  "photo":"/assets/images/Veronicaldg.png",
 	  "scores":[
 	      1,
 	      5,
@@ -56,7 +56,7 @@ var tableArray = [
 	},
 	{
 	  "name":"Jughead Jones",
-	  "photo":"../public/assets/images/Jugheadjns.png",
+	  "photo":"/assets/images/Jugheadjns.png",
 	  "scores":[
 	      1,
 	      5,
@@ -72,7 +72,7 @@ var tableArray = [
 	},
 	{
 	  "name":"Reggie Mantle",
-	  "photo":"../public/assets/images/Reggie_Mantle.png",
+	  "photo":"/assets/images/Reggie_Mantle.png",
 	  "scores":[
 	      1,
 	      5,
@@ -88,7 +88,7 @@ var tableArray = [
 	},
 	{
 	  "name":"Moose Mason",
-	  "photo":"../public/assets/images/Moosemsn.png",
+	  "photo":"/assets/images/Moosemsn.png",
 	  "scores":[
 	      1,
 	      5,
@@ -104,7 +104,7 @@ var tableArray = [
 	},
 	{
 	  "name":"Cheryl Blossom",
-	  "photo":"../public/assets/images/Cherylblsm.png",
+	  "photo":"/assets/images/Cherylblsm.png",
 	  "scores":[
 	      1,
 	      5,
