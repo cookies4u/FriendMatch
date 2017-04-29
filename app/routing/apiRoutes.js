@@ -4,8 +4,10 @@
 // These data sources hold arrays of information on table-data, waitinglist, etc.
 // ===============================================================================
 
-var tableData = require("../data/tableData");
-var waitListData = require("../data/waitinglistData");
+var tableData = require("../data/friends");
+
+// var tableData = require("../data/tableData");
+// var waitListData = require("../data/waitinglistData");
 
 
 // ===============================================================================
@@ -19,12 +21,8 @@ module.exports = function(app) {
   // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
   // ---------------------------------------------------------------------------
 
-  app.get("/api/tables", function(req, res) {
+  app.get("/api/friendsList", function(req, res) { // displaying the object from friends.js
     res.json(tableData);
-  });
-
-  app.get("/api/waitlist", function(req, res) {
-    res.json(waitListData);
   });
 
   // API POST Requests
@@ -35,17 +33,57 @@ module.exports = function(app) {
   // Then the server saves the data to the tableData array)
   // ---------------------------------------------------------------------------
 
-  app.post("/api/tables", function(req, res) {
+  app.post("/api/friendsList", function(req, res) {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
-    if (tableData.length < 5) {
-      tableData.push(req.body);
-      res.json(true);
+
+    
+    // need to compare just submitted req.boody to tableData
+    console.log(req.body);
+    var submittedUser = req.body.scores;
+
+    var userDif = [100];
+    var highestIndex;
+
+    for (var i = 0; i < tableData.length; i++) {
+      var tableScores = tableData[i].scores;
+      var userTotal = 0;
+      for (var j = 0; j < tableScores.length; j++) {
+        userTotal += Math.abs(tableScores[j] - submittedUser[j]);
+      }
+
+      if (userTotal < userDif[0]) {
+        userDif[0] = userTotal;
+        console.log(userDif[0]);
+        highestIndex = i;
+        console.log(highestIndex);
+      }
+
     }
-    else {
-      waitListData.push(req.body);
-      res.json(false);
+    
+
+      tableData.push(req.body); // adding data to object in friends.js //req.body is the data that is being submitted
+      
+      // pass back object of match
+      res.json(tableData[highestIndex]);
+      //res.json(tableData[0]); // what is in the table
+      //res.json(req.body); // what the user just entered
+      //res.json(req.body.scores); // what the user just entered scores
+      //res.json(highestIndex);
+      /*
+    for (i in tableData) {
+      var tableScores = tableData[i].scores;
+      var userTotal = 0;
+
+      for (j in tableScores) {
+        userTotal += Math.abs(tableScores[j] - submittedUser[j]);
+      }
+       if (userTotal > userDif[0]) {
+        userDif[0] = userTotal;
+        highestIndex = i;
+      }
     }
+  */
   });
 
   // ---------------------------------------------------------------------------
@@ -55,8 +93,8 @@ module.exports = function(app) {
   app.post("/api/clear", function() {
     // Empty out the arrays of data
     tableData = [];
-    waitListData = [];
 
     console.log(tableData);
   });
+
 };

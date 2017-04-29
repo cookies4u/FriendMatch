@@ -1,0 +1,30 @@
+{
+  "name": "friend_match",
+  "version": "1.0.0",
+  "description": "Survey matches user with someone who answered similarly",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cookies4u/FriendMatch.git"
+  },
+  "keywords": [
+    "express",
+    "node"
+  ],
+  "author": "Juan C.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cookies4u/FriendMatch/issues"
+  },
+  "homepage": "https://github.com/cookies4u/FriendMatch#readme"
+}
