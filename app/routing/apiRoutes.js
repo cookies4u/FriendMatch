@@ -45,10 +45,12 @@ module.exports = function(app) {
     var userDif = [100];
     var highestIndex;
 
-    for (var i = 0; i < tableData.length; i++) {
+    //for (var i = 0; i < tableData.length; i++) {
+    for (i in tableData) {
       var tableScores = tableData[i].scores;
       var userTotal = 0;
-      for (var j = 0; j < tableScores.length; j++) {
+      for (j in tableScores) {
+      //for (var j = 0; j < tableScores.length; j++) {
         userTotal += Math.abs(tableScores[j] - submittedUser[j]);
       }
 
@@ -70,20 +72,7 @@ module.exports = function(app) {
       //res.json(req.body); // what the user just entered
       //res.json(req.body.scores); // what the user just entered scores
       //res.json(highestIndex);
-      /*
-    for (i in tableData) {
-      var tableScores = tableData[i].scores;
-      var userTotal = 0;
-
-      for (j in tableScores) {
-        userTotal += Math.abs(tableScores[j] - submittedUser[j]);
-      }
-       if (userTotal > userDif[0]) {
-        userDif[0] = userTotal;
-        highestIndex = i;
-      }
-    }
-  */
+ 
   });
 
   // ---------------------------------------------------------------------------
